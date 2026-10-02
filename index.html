@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f4f8;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+        }
+
+        .profile-card {
+            width: 500px;
+            padding: 50px 40px;
+
+            text-align: center;
+
+            /* Starting color */
+            background-color: white;
+
+            border: 2px solid #4aa894;
+            border-radius: 18px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            color: #116b5d;
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #222;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .course {
+            color: #777;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #20a995;
+            color: white;
+
+            border: none;
+            padding: 12px 18px;
+            margin: 4px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #168575;
+        }
+
+        #details {
+            margin-top: 30px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-card" id="profileCard">
+
+        <h1>Student Profile</h1>
+
+        <h2 id="studentName">
+            Christine Jane C. Supangan
+        </h2>
+
+        <p class="course">
+            BS Computer Science - 3rd Year
+        </p>
+
+        <button onclick="changeName()">
+            Change Name
+        </button>
+
+        <button onclick="changeBackground()">
+            Change Background
+        </button>
+
+        <button onclick="hideDetails()" id="hideButton">
+            Hide Details
+        </button>
+
+        <p id="details">
+            Christine Jane is a third-year BS Computer Science
+            student who enjoys exploring and programming.
+        </p>
+
+    </div>
+
+
+    <script>
+
+        // CHANGE NAME
+
+        function changeName() {
+
+            let newName = prompt("Enter the new student name:");
+
+            if (newName !== null && newName.trim() !== "") {
+
+                document.getElementById("studentName").textContent = newName;
+
+            }
+        }
+
+
+        // CHANGE BACKGROUND
+        // LIGHT GREEN <-> WHITE
+
+        function changeBackground() {
+
+            let profile = document.getElementById("profileCard");
+
+            if (profile.style.backgroundColor === "white") {
+
+                profile.style.backgroundColor = "#c9f7ee";
+
+            } else {
+
+                profile.style.backgroundColor = "white";
+
+            }
+        }
+
+
+        // HIDE / SHOW DETAILS
+
+        function hideDetails() {
+
+            let details = document.getElementById("details");
+
+            let button = document.getElementById("hideButton");
+
+            if (details.style.display === "none") {
+
+                details.style.display = "block";
+
+                button.textContent = "Hide Details";
+
+            } else {
+
+                details.style.display = "none";
+
+                button.textContent = "Show Details";
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
